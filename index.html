@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Complet avec Images - Analyses Comparatives</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .report-section {
+            margin-bottom: 50px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            page-break-before: auto;
+        }
+        
+        .report-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: linear-gradient(90deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            border-radius: 5px;
+        }
+        
+        .comparison-container {
+            margin: 30px 0;
+        }
+        
+        .comparison-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .document-box {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .document-box h3 {
+            background: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 2px solid #dee2e6;
+            font-size: 1.1em;
+        }
+        
+        .document-box.before h3 {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .document-box.after h3 {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .document-image {
+            padding: 10px;
+            background: white;
+        }
+        
+        .document-image img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #e0e0e0;
+            cursor: zoom-in;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 2px solid #f39c12;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .modification-detail {
+            background: white;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .deleted-items {
+            background: #fff5f5;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .financial-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .financial-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .financial-table .total-row {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .increase { color: #28a745; font-weight: bold; }
+        .decrease { color: #dc3545; font-weight: bold; }
+        .unchanged { color: #6c757d; }
+        
+        .note {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            .report-section {
+                page-break-before: always;
+            }
+            .documents-grid {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Rapport Complet d'Analyse Comparative</h1>
+            <p style="color: #666; margin-top: 10px;">Documents comptables avec modifications visuelles</p>
+        </div>
+        
+        <!-- AVOIR SK AUTO -->
+        <div class="report-section">
+            <h2>📄 DOCUMENT 1 : AVOIR N°20250264 - STE S.K AUTO</h2>
+            
+            <div class="highlight-box">
+                <h4>⚠️ Modification Détectée</h4>
+                <div class="modification-detail">
+                    <strong>Article:</strong> LPR05P1190 - PATINS AV MAZDA 3 FORD FOCUS<br>
+                    <strong>Changement:</strong> Quantité passée de -1 (crédit) à +1 (vente)<br>
+                    <strong>Impact:</strong> +69,694 DT TTC
+                </div>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-title">COMPARAISON VISUELLE - PAGE 1</div>
+                <div class="documents-grid">
+                    <div class="document-box before">
+                        <h3>AVANT MODIFICATION</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/19Daww2aR5Hx5NoTyo0xMA2YwXDULrqwJ/preview" width="600" height="400"></iframe>
+
+                            <div class="note">
+                                Article LPR05P1190 avec quantité <strong>-1</strong> (ligne 7)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="document-box after">
+                        <h3>APRÈS MODIFICATION</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/1UaaEPxsHpxj5HOPLH1yuc6ZmhWuPKJyo/preview" width="600" height="400"></iframe>
+                            <div class="note">
+                                Article LPR05P1190 avec quantité <strong>1</strong> (repositionné)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Indicateur</th>
+                        <th>Avant</th>
+                        <th>Après</th>
+                        <th>Variation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total H.T.</td>
+                        <td>3 392,220 DT</td>
+                        <td>3 470,308 DT</td>
+                        <td class="increase">+78,088 DT</td>
+                    </tr>
+                    <tr>
+                        <td>Remise (25%)</td>
+                        <td>848,057 DT</td>
+                        <td>867,579 DT</td>
+                        <td class="increase">+19,522 DT</td>
+                    </tr>
+                    <tr>
+                        <td>TVA (19%)</td>
+                        <td>483,390 DT</td>
+                        <td>494,518 DT</td>
+                        <td class="increase">+11,128 DT</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>NET À PAYER</td>
+                        <td>3 028,553 DT</td>
+                        <td>3 098,247 DT</td>
+                        <td class="increase">+69,694 DT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- FACTURE AFRICA PIECES -->
+        <div class="report-section">
+            <h2>📄 DOCUMENT 2 : FACTURE N°20250729 - AFRICA DES PIECES AUTOS</h2>
+            
+            <div class="highlight-box">
+                <h4>⚠️ Modification de Remise</h4>
+                <div class="modification-detail">
+                    <strong>Article:</strong> 104710 - AMORT AV PEU B9 C4 D<br>
+                    <strong>Changement:</strong> Remise passée de 15% à 20%<br>
+                    <strong>Impact:</strong> -7,550 DT TTC (réduction pour le client)
+                </div>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-title">COMPARAISON - PAGE 1 (Article 104710)</div>
+                <div class="documents-grid">
+                    <div class="document-box before">
+                        <h3>AVANT - Remise 15%</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/1CdPBTJAG8vMrGKGw_hZ_rxMnszoxix3l/preview" width="600" height="400"></iframe>
+                            <div class="note">
+                                Article 104710 avec remise <strong>15%</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="document-box after">
+                        <h3>APRÈS - Remise 20%</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/1Lo0aI1asV-Pjs8sHPEthgdPP6KIp15Ad/preview" width="600" height="400"></iframe>
+                            <div class="note">
+                                Article 104710 avec remise <strong>20%</strong> (encerclée)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Indicateur</th>
+                        <th>Avant (15%)</th>
+                        <th>Après (20%)</th>
+                        <th>Variation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total H.T.</td>
+                        <td>4 631,323 DT</td>
+                        <td>4 631,323 DT</td>
+                        <td class="unchanged">0,000 DT</td>
+                    </tr>
+                    <tr>
+                        <td>Montant Remise</td>
+                        <td>389,693 DT</td>
+                        <td>396,038 DT</td>
+                        <td class="increase">+6,345 DT</td>
+                    </tr>
+                    <tr>
+                        <td>TVA (19%)</td>
+                        <td>805,910 DT</td>
+                        <td>804,705 DT</td>
+                        <td class="decrease">-1,205 DT</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>NET À PAYER</td>
+                        <td>5 048,540 DT</td>
+                        <td>5 040,990 DT</td>
+                        <td class="decrease">-7,550 DT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- FACTURE KAIED AUTO -->
+        <div class="report-section">
+            <h2>📄 DOCUMENT 3 : FACTURE N°20250921 - STE KAIED AUTO</h2>
+            
+            <div class="deleted-items">
+                <h4>❌ Suppression du BL N°2025011002 - 5 Batteries</h4>
+                <ul>
+                    <li><strong>CIAKCDA70GM</strong> - BATTERIE L3 70AH (496,650 DT)</li>
+                    <li><strong>CIAKCS35DAE</strong> - BATTERIE KIA PICANTO (297,232 DT)</li>
+                    <li><strong>CIAKCS60LA</strong> - BATTERIE L2 60AH (242,413 DT)</li>
+                    <li><strong>CIAKCS65D</strong> - BATTERIE L2 65AH (234,146 DT)</li>
+                    <li><strong>CIAKCS75D</strong> - BATTERIE L3 75AH (503,740 DT)</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-title">COMPARAISON - PAGE 1</div>
+                <div class="documents-grid">
+                    <div class="document-box before">
+                        <h3>AVANT - Avec Batteries</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/1U_2O8-O7gfyo-75HWlI1h1MgIlosrvzJ/preview" width="600" height="400"></iframe>
+                            <div class="note">
+                                BL N°2025011002 visible avec 5 batteries
+                            </div>
+                        </div>
+                    </div>
+                    <div class="document-box after">
+                        <h3>APRÈS - Sans Batteries</h3>
+                        <div class="document-image">
+							<iframe src="https://drive.google.com/file/d/12-gOFi8L1Mt74Ix10z7pY4ZkgXaWAjGT/preview" width="600" height="400"></iframe>
+                            <div class="note">
+                                BL N°2025011002 complètement supprimé
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Indicateur</th>
+                        <th>Avant</th>
+                        <th>Après</th>
+                        <th>Variation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total H.T.</td>
+                        <td>3 222,178 DT</td>
+                        <td>1 944,647 DT</td>
+                        <td class="decrease">-1 277,531 DT</td>
+                    </tr>
+                    <tr>
+                        <td>Remise</td>
+                        <td>160,236 DT</td>
+                        <td>160,236 DT</td>
+                        <td class="unchanged">0,000 DT</td>
+                    </tr>
+                    <tr>
+                        <td>TVA (19%)</td>
+                        <td>581,769 DT</td>
+                        <td>339,038 DT</td>
+                        <td class="decrease">-242,731 DT</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>NET À PAYER</td>
+                        <td>3 644,711 DT</td>
+                        <td>2 124,449 DT</td>
+                        <td class="decrease">-1 520,262 DT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
